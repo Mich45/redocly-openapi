@@ -3,23 +3,23 @@ info:
   title: OpenWeatherMap API
   description: 'Get the current weather, daily forecast for 16 days, and a three-hour-interval forecast for 5 days for your city. Helpful stats, graphics, and this day in history charts are available for your reference. Interactive maps show precipitation, clouds, pressure, wind around your location stations. Data is available in JSON, XML, or HTML format. **Note**: This sample Swagger file covers the `current` endpoint only from the OpenWeatherMap API. <br/><br/> **Note**: All parameters are optional, but you must select at least one parameter. Calling the API by city ID (using the `id` parameter) will provide the most precise location results.'
   version: '2.5'
-  termsOfService: 'https://openweathermap.org/terms'
+  termsOfService: https://openweathermap.org/terms
   contact:
     name: OpenWeatherMap API
-    url: 'https://openweathermap.org/api'
+    url: https://openweathermap.org/api
     email: some_email@gmail.com
   license:
     name: CC Attribution-ShareAlike 4.0 (CC BY-SA 4.0)
-    url: 'https://openweathermap.org/price'
+    url: https://openweathermap.org/price
 servers:
-  - url: 'https://api.openweathermap.org/data/2.5'
+  - url: https://api.openweathermap.org/data/2.5
 paths:
   /weather:
     get:
       tags:
         - Current Weather Data
       summary: Call current weather data for one location
-      description: 'Access current weather data for any location on Earth including over 200,000 cities! Current weather is frequently updated based on global models and data from more than 40,000 weather stations.'
+      description: Access current weather data for any location on Earth including over 200,000 cities! Current weather is frequently updated based on global models and data from more than 40,000 weather stations.
       operationId: CurrentWeatherData
       parameters:
         - $ref: '#/components/parameters/q'
@@ -52,7 +52,7 @@ tags:
     description: Get current weather details
 externalDocs:
   description: API Documentation
-  url: 'https://openweathermap.org/api'
+  url: https://openweathermap.org/api
 components:
   parameters:
     q:
@@ -168,7 +168,7 @@ components:
           $ref: '#/components/schemas/Main'
         visibility:
           type: integer
-          description: 'Visibility, meter'
+          description: Visibility, meter
           example: 16093
         wind:
           $ref: '#/components/schemas/Wind'
@@ -180,7 +180,7 @@ components:
           $ref: '#/components/schemas/Snow'
         dt:
           type: integer
-          description: 'Time of data calculation, unix, UTC'
+          description: Time of data calculation, unix, UTC
           format: int32
           example: 1435658272
         sys:
@@ -204,11 +204,11 @@ components:
       properties:
         lon:
           type: number
-          description: 'City geo location, longitude'
+          description: City geo location, longitude
           example: 145.77
         lat:
           type: number
-          description: 'City geo location, latitude'
+          description: City geo location, latitude
           example: -16.92
     Weather:
       title: Weather
@@ -221,7 +221,7 @@ components:
           example: 803
         main:
           type: string
-          description: 'Group of weather parameters (Rain, Snow, Extreme etc.)'
+          description: Group of weather parameters (Rain, Snow, Extreme etc.)
           example: Clouds
         description:
           type: string
@@ -241,12 +241,12 @@ components:
           example: 293.25
         pressure:
           type: integer
-          description: 'Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa'
+          description: Atmospheric pressure (on the sea level, if there is no sea_level or grnd_level data), hPa
           format: int32
           example: 1019
         humidity:
           type: integer
-          description: 'Humidity, %'
+          description: Humidity, %
           format: int32
           example: 83
         temp_min:
@@ -259,11 +259,11 @@ components:
           example: 295.37
         sea_level:
           type: number
-          description: 'Atmospheric pressure on the sea level, hPa'
+          description: Atmospheric pressure on the sea level, hPa
           example: 984
         grnd_level:
           type: number
-          description: 'Atmospheric pressure on the ground level, hPa'
+          description: Atmospheric pressure on the ground level, hPa
           example: 990
     Wind:
       title: Wind
@@ -275,7 +275,7 @@ components:
           example: 5.1
         deg:
           type: integer
-          description: 'Wind direction, degrees (meteorological)'
+          description: Wind direction, degrees (meteorological)
           format: int32
           example: 150
     Clouds:
@@ -284,7 +284,7 @@ components:
       properties:
         all:
           type: integer
-          description: 'Cloudiness, %'
+          description: Cloudiness, %
           format: int32
           example: 75
     Rain:
@@ -324,21 +324,21 @@ components:
           example: 0.0166
         country:
           type: string
-          description: 'Country code (GB, JP etc.)'
+          description: Country code (GB, JP etc.)
           example: AU
         sunrise:
           type: integer
-          description: 'Sunrise time, unix, UTC'
+          description: Sunrise time, unix, UTC
           format: int32
           example: 1435610796
         sunset:
           type: integer
-          description: 'Sunset time, unix, UTC'
+          description: Sunset time, unix, UTC
           format: int32
           example: 1435650870
   securitySchemes:
     app_id:
       type: apiKey
-      description: 'API key to authorize requests. (If you don''t have an API key, get one at https://openweathermap.org/. See https://idratherbewriting.com/learnapidoc/docapis_get_auth_keys.html for details.)'
+      description: API key to authorize requests. (If you don't have an API key, get one at https://openweathermap.org/. See https://idratherbewriting.com/learnapidoc/docapis_get_auth_keys.html for details.)
       name: appid
       in: query
